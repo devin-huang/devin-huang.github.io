@@ -5,7 +5,7 @@ header-img: img/home-bg.jpg
 email: devinhuang229@gmail.com
 description: "Every failure is leading towards success."
 keyword: "Devin Blog , 乐木的博客, devinhuang, 老鸡, Web, Jquery, Javascript , Vue"
-
+url: "https://devin-huang.github.io/"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/devin-huang/devin-huang.github.io.git" # you code repository
 
