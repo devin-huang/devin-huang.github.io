@@ -3,7 +3,7 @@ layout:     post
 title:      websocket实时聊天室
 subtitle:   基于Node.js、socket.io实现
 date:       2017-04-26
-author:     BY
+author:     BY Devin
 header-img: img/post-bg-e2e-ux.jpg
 catalog: true
 tags:
