@@ -4,7 +4,7 @@ title:      websocket实时聊天室
 subtitle:   基于Node.js、socket.io实现
 date:       2017-04-26
 author:     BY
-header-img: img/post-bg-ios9-web.jpg
+header-img: img/post-bg-e2e-ux.jpg
 catalog: true
 tags:
     - Node.js
@@ -296,6 +296,7 @@ index.html / room.hbs
 </html>
 ```
 
+# Index
 ```
 /*--- index.html ---*/
 <!DOCTYPE html>
