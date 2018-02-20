@@ -2,7 +2,7 @@
 layout:     post
 title:      websocket实时聊天室
 subtitle:   基于Node.js、socket.io实现
-date:       2017-01-26
+date:       2017-04-26
 author:     BY
 header-img: img/post-bg-ios9-web.jpg
 catalog: true
