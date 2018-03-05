@@ -7,12 +7,11 @@ author:     BY Devin
 header-img: img/post-bg-ioses.jpg
 catalog: true
 tags:
-    - Vue
-    - Axios
-    - VueRouter
-    - Webpack
+    - Vue
+    - Axios
+    - VueRouter
+    - Webpack
 ---
-
 
 ## 前言
 
