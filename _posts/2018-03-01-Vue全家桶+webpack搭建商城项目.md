@@ -1,18 +1,24 @@
 ---
 layout:     post
 title:     Vue全家桶+webpack搭建商城项目
-subtitle:   Vue2+VueRouter2+Webpack+Axios 构建项目实战2017重制版
+subtitle:   Vue + VueRouter + Webpack + Axios
 date:       2018-03-01
 author:     BY Devin
 header-img: img/post-bg-ioses.jpg
 catalog: true
 tags:
-    - JQUERY
-    - JAVASCRIPT
+    - Vue
+    - Axios
+    - VueRouter
+    - Webpack
 ---
 
 
 ## 前言
+
+![](/img/pubilc/path.jpg)
+
+![](/img/pubilc/process.jpg)
 
 在网络上寻找了一些编写JQUERY方式，也观看了官网给的方式，感觉官网的方式后并不太喜欢，还是偏向对象的方式。但是搜索资料中并没有找到1.选项中函数参数传入方式2.API的编写方式；所以参考别人的格式制作的到规范；
 
