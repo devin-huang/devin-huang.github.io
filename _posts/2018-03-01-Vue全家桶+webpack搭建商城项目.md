@@ -36,6 +36,18 @@ tags:
 
 ![](/img/pubilc/path.jpg)
 
+# vuex状态管理模式
+
+[什么是Vuex](https://www.cnblogs.com/kbnet/p/6938693.html)，本商城项目中`src/store`使用了Vuex
+
+State      : 储存初始化数据
+
+Getters    : State 数据二次处理
+
+Mutations  : 数据进行计算的方法,页面中触发方式this.$store.commit('mutationName')触发Mutations方法改变state的值
+
+Actions    : 类似Mutations,页面中触发方式this.$store.dispatch(actionName)，与Mutations区别在于异步函数使用Actions
+
 # Vue运行
 
 运行主要入口文件为`src/main.js`
@@ -44,12 +56,4 @@ tags:
 
 参考文章：
 
-
-
-
-
-
-
-
-
-[vue搭建](https://github.com/devin-huang/vue-demo-cnodejs)
+[vue-cli+webpack搭建](https://github.com/devin-huang/vue-demo-cnodejs)
