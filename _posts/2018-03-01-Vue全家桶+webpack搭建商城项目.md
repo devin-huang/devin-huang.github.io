@@ -7,129 +7,50 @@ author:     BY Devin
 header-img: img/post-bg-ioses.jpg
 catalog: true
 tags:
-    - Vue
-    - Axios
-    - VueRouter
-    - Webpack
+    - Vue
+    - Axios
+    - VueRouter
+    - Webpack
 ---
-
 
 ## 前言
 
+使用Vue全家桶+webpack一步步讲解商城项目，vue商城展示效果[Vue商城](https://github.com/devin-huang/devin-vue2)
+
+![](/img/pubilc/vue-shop.jpg)
+
+## Vue-cli
+
+安装vue-cli
+
+`npm install -g vue-cli`
+
+创建项目
+
+`vue init webpack devin-vue2`提示装vue-router (yes) , Use ESLint to lint your code? (yes)  unit (N) e2e (N)
+
+使用vue-cli快速搭建项目整体环境，生成后主要对src文件夹内容经行修改，修改为符合开发的格式，具体请参考下图
+
 ![](/img/pubilc/path.jpg)
+
+## vuex状态管理模式
+
+[什么是Vuex](https://www.cnblogs.com/kbnet/p/6938693.html)，本商城项目中`src/store`使用了Vuex
+
+State      : 储存初始化数据
+
+Getters    : State 数据二次处理
+
+Mutations  : 数据进行计算的方法,页面中触发方式this.$store.commit('mutationName')触发Mutations方法改变state的值
+
+Actions    : 类似Mutations,页面中触发方式this.$store.dispatch(actionName)，与Mutations区别在于异步函数使用Actions
+
+## Vue运行
+
+运行主要入口文件为`src/main.js`
 
 ![](/img/pubilc/process.jpg)
 
-在网络上寻找了一些编写JQUERY方式，也观看了官网给的方式，感觉官网的方式后并不太喜欢，还是偏向对象的方式。但是搜索资料中并没有找到1.选项中函数参数传入方式2.API的编写方式；所以参考别人的格式制作的到规范；
-
-**1.methods参数是通过call() or apply()传到前台；**
-**2.API需要图2图4对应的；**
-
-## 正文
-
-下面拆分讲解：
-1.AMD规范的目的都是为了JavaScript模块化开发
-![](/img/pubilc/plugin-0.jpg)
-
-2.定义一个对象，其中$[PUBLIC]代表插件本身
-![](/img/pubilc/plugin-1.jpg)
-
-3.初始化定义属性选项
-![](/img/pubilc/plugin-2.jpg)
-
-4.对象的原型链方法的介绍及API
-![](/img/pubilc/plugin-3.jpg)
-
-5.实例化插件
-![](/img/pubilc/plugin-4.jpg)
-
-```
-(function (factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as anonymous module.
-    define(['jquery'], factory);
-  } else if (typeof exports === 'object') {
-    // Node / CommonJS
-    factory(require('jquery'));
-  } else {
-    // Browser globals.
-    factory(jQuery);
-  }
-}(function ($) {
-
-    'use strict';
-    /* Defind Plugin */
-    var _PLUGIN_    = 'poster';
-    var _VERSION_   = '1.0.0';
-
-    if ( $[ _PLUGIN_ ] && $[ _PLUGIN_ ].version > _VERSION_ )
-    {
-        return;
-    }
-
-    /* Init Object */
-    $[_PLUGIN_] = function($container,options){
-        var self = this ;
-        this.container = $container ;
-        this.options   = options ;
-        this.api       = [ "init", "destroy" ];
-        this.init();
-        return this ;
-    };
-
-    $[_PLUGIN_].version = _VERSION_;
-
-    $[_PLUGIN_].defaults = {
-        "name"    : "Devin" ,
-        "isClass" : false , 
-        "doFn"    : null ,
-    }; 
-
-    /* Prototype Function */
-    $[_PLUGIN_].prototype = {
-        init : function (){
-            var _this_ = this ;
-        },
-        destroy : function()
-        {
-            this.container.empty().html(this.defalutHtml);
-        },    
-        defaultDOM : function(dir){
-        },  
-        _api_: function()
-        {
-            var self_ = this,
-                api = {};
-
-            $.each( this.api,
-                function( i )
-                {
-                    var fn = this;
-                    api[ fn ] = function()
-                    {   
-                        var re = self_[ fn ].apply( self_, arguments );
-                        return ( typeof re == 'undefined' ) ? api : re;
-                    };
-                }
-            );
-            return api;
-        },
-    };
-
-    /* The jQuery plugin */
-    $.fn[_PLUGIN_] = function(options){
-
-        options = $.extend( true, {} , $[_PLUGIN_].defaults , options );
-        return this.each(function(){
-            $(this).data( _PLUGIN_, new $[_PLUGIN_]( $(this), options )._api_() );
-        });
-
-    };
-
-}));
-```
 参考文章：
 
-[如何写插件](http://blog.csdn.net/caiwanxia1/article/details/53079408)
-
-[dotdotdot](http://dotdotdot.frebsite.nl/)
+[vue-cli+webpack搭建](https://github.com/devin-huang/vue-demo-cnodejs)
