@@ -20,9 +20,7 @@ tags:
 
 ![](/img/pubilc/vue-shop.jpg)
 
-## 正文
-
-# Vue-cli
+## Vue-cli
 
 安装vue-cli
 
@@ -36,7 +34,7 @@ tags:
 
 ![](/img/pubilc/path.jpg)
 
-# vuex状态管理模式
+## vuex状态管理模式
 
 [什么是Vuex](https://www.cnblogs.com/kbnet/p/6938693.html)，本商城项目中`src/store`使用了Vuex
 
@@ -48,7 +46,7 @@ Mutations  : 数据进行计算的方法,页面中触发方式this.$store.commit
 
 Actions    : 类似Mutations,页面中触发方式this.$store.dispatch(actionName)，与Mutations区别在于异步函数使用Actions
 
-# Vue运行
+## Vue运行
 
 运行主要入口文件为`src/main.js`
 
