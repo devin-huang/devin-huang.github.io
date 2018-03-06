@@ -51,6 +51,24 @@ tags:
 
 * Actions    : 类似Mutations,页面中触发方式this.$store.dispatch(actionName)，与Mutations区别在于异步函数使用Actions
 
+## vue全家桶
+
+`axios`Vue2.0异步方式请求数据方式
+
+`vue-awesome-swiper`轮播图插件
+
+`vue-lazyload`懒加载
+
+`vue-router`路由
+
+`vuex`状态管理
+
+`better-scroll`移动端滚动列表
+
+`lib-flexible`制作移动端适配的开源库
+
+`mint-ui`基于 Vue.js 的移动端组件库
+
 ## Vue运行
 
 运行主要入口文件为`src/main.js`
