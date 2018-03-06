@@ -37,7 +37,9 @@ tags:
 
 ## vuex状态管理模式
 
-[什么是Vuex?](https://www.cnblogs.com/kbnet/p/6938693.html)
+[什么是Vuex?](https://vuex.vuejs.org/zh-cn/intro.html)
+
+[Vuex属性对象](https://www.cnblogs.com/kbnet/p/6938693.html)
 
 本商城项目中`src/store`使用了Vuex
 
