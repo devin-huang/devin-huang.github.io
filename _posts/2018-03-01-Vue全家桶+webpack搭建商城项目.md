@@ -27,7 +27,9 @@ tags:
 
 创建项目
 
-`vue init webpack devin-vue2`提示装vue-router (yes) , Use ESLint to lint your code? (yes)  unit (N) e2e (N)
+`vue init webpack devin-vue2`
+
+提示装vue-router (yes) , Use ESLint to lint your code? (yes)  unit (N) e2e (N)
 
 使用vue-cli快速搭建项目整体环境，生成后主要对src文件夹内容经行修改，修改为符合开发的格式，具体请参考下图
 
@@ -35,15 +37,17 @@ tags:
 
 ## vuex状态管理模式
 
-[什么是Vuex](https://www.cnblogs.com/kbnet/p/6938693.html)，本商城项目中`src/store`使用了Vuex
+[什么是Vuex?](https://www.cnblogs.com/kbnet/p/6938693.html)
 
-State      : 储存初始化数据
+本商城项目中`src/store`使用了Vuex
 
-Getters    : State 数据二次处理
+* State      : 储存初始化数据
 
-Mutations  : 数据进行计算的方法,页面中触发方式this.$store.commit('mutationName')触发Mutations方法改变state的值
+* Getters    : State 数据二次处理
 
-Actions    : 类似Mutations,页面中触发方式this.$store.dispatch(actionName)，与Mutations区别在于异步函数使用Actions
+* Mutations  : 数据进行计算的方法,页面中触发方式this.$store.commit('mutationName')触发Mutations方法改变state的值
+
+* Actions    : 类似Mutations,页面中触发方式this.$store.dispatch(actionName)，与Mutations区别在于异步函数使用Actions
 
 ## Vue运行
 
