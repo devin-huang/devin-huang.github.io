@@ -27,23 +27,47 @@ tags:
 
 创建项目
 
-`vue init webpack devin-vue2`提示装vue-router (yes) , Use ESLint to lint your code? (yes)  unit (N) e2e (N)
+`vue init webpack devin-vue2`
+
+提示装vue-router (yes) , Use ESLint to lint your code? (yes)  unit (N) e2e (N)
 
 使用vue-cli快速搭建项目整体环境，生成后主要对src文件夹内容经行修改，修改为符合开发的格式，具体请参考下图
 
 ![](/img/pubilc/path.jpg)
 
+## vue全家桶
+
+`axios`Vue2.0异步方式请求数据方式
+
+* `vue-awesome-swiper`轮播图插件
+
+* `vue-lazyload`懒加载
+
+* `vue-router`路由
+
+* `vuex`状态管理
+
+* `better-scroll`移动端滚动列表
+
+* `lib-flexible`制作移动端适配的开源库
+
+* `mint-ui`基于 Vue.js 的移动端组件库
+
 ## vuex状态管理模式
 
-[什么是Vuex](https://www.cnblogs.com/kbnet/p/6938693.html)，本商城项目中`src/store`使用了Vuex
+[什么是Vuex?](https://vuex.vuejs.org/zh-cn/intro.html)
 
-State      : 储存初始化数据
+[Vuex属性对象](https://www.cnblogs.com/kbnet/p/6938693.html)
 
-Getters    : State 数据二次处理
+本商城项目中`src/store`使用了Vuex
 
-Mutations  : 数据进行计算的方法,页面中触发方式this.$store.commit('mutationName')触发Mutations方法改变state的值
+* State      : 储存初始化数据
 
-Actions    : 类似Mutations,页面中触发方式this.$store.dispatch(actionName)，与Mutations区别在于异步函数使用Actions
+* Getters    : State 数据二次处理
+
+* Mutations  : 数据进行计算的方法,页面中触发方式this.$store.commit('mutationName')触发Mutations方法改变state的值
+
+* Actions    : 类似Mutations,页面中触发方式this.$store.dispatch(actionName)，与Mutations区别在于异步函数使用Actions
 
 ## Vue运行
 
