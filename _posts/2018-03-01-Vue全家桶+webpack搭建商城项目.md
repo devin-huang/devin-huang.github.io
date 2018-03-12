@@ -27,7 +27,7 @@ tags:
 
 创建项目
 
-`vue init webpack devin-vue2`
+`vue init webpack Shop-vue2`
 
 提示装vue-router (yes) , Use ESLint to lint your code? (yes)  unit (N) e2e (N)
 
