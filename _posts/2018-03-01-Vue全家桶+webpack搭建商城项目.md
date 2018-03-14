@@ -61,7 +61,7 @@ tags:
 
 本商城项目中`src/store`使用了Vuex
 
-* State      : 储存初始化数据
+* State      : 储存初始化数据或后端获取的数据
 
 * Getters    : State 数据二次处理
 
