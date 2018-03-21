@@ -53,6 +53,8 @@ tags:
 
 * `mint-ui`基于 Vue.js 的移动端组件库
 
+* `voinc`基于Vue.js和ionic样式的UI框架，用于方便快速地搭建单页应用
+
 ## vuex状态管理模式
 
 [什么是Vuex?](https://vuex.vuejs.org/zh-cn/intro.html)
@@ -61,7 +63,7 @@ tags:
 
 本商城项目中`src/store`使用了Vuex
 
-* State      : 储存初始化数据
+* State      : 储存初始化数据或后端获取的数据
 
 * Getters    : State 数据二次处理
 
