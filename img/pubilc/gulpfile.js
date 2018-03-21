@@ -1,21 +1,23 @@
 var gulp = require('gulp'); 
 
-var clean = require('gulp-clean');// 引入组件
+var clean = require('gulp-clean');
 
-var concat = require('gulp-concat');// 合并文件
+var concat = require('gulp-concat'); // 合并文件
 
-var rename = require('gulp-rename');// 重命名
+var rename = require('gulp-rename'); // 重命名
 
-var compass = require('gulp-compass');// 校验JS代码
+var compass = require('gulp-compass');
 
-var htmlminify = require("gulp-html-minify");// HTML、CSS、JS优化
+var htmlminify = require("gulp-html-minify");
 var cleanCSS = require('gulp-clean-css');
 var uglify = require('gulp-uglify');
-// 图片压缩
+var babel = require('gulp-babel'); //ES6+ compiler ES5
+
+// Images Compress
 var imagemin = require('gulp-imagemin');
 var tiny = require('gulp-tinypng-nokey');
 
-// 增加hash码(rev、revCollector需要一起使用；参考http://www.cnblogs.com/1wen/p/5421212.html（文件、图片都可以）)
+// HASH (rev、revCollector需要一起使用；参考http://www.cnblogs.com/1wen/p/5421212.html（文件、图片都可以）)
 var rev = require('gulp-rev');
 
 var revCollector = require('gulp-rev-collector');  // 路径替换
@@ -69,6 +71,9 @@ gulp.task("rev-css",function(){
 
 gulp.task("rev-js",function(){
     return gulp.src(path.dev.js +"/*.js")
+        .pipe(babel({
+            presets: ['env']
+        }))
         .pipe(uglify())
         .pipe(rev())
         .pipe(gulp.dest(path.dist.js))
