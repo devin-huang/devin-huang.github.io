@@ -55,18 +55,20 @@ io.sockets.on('connection', function (socket) {
 
 `io.sockets.on('connection', function (socket) { ... })` 的作用是服务器监听所有客户端，并返回该新连接对象，接下来我们就可以通过该连接对象（socket）与客户端进行通信。
 
-服务器与客户端都有 emit 和 on 这两个函数，是socket.io的核心函数，通过 emit 和 on 可以轻松地实现服务器与客户端之间的双向通信。
+**服务器与客户端都有 emit 和 on 这两个函数，是socket.io的核心函数，通过 emit 和 on 可以轻松地实现服务器与客户端之间的双向通信。**
 
-emit ：发射事件或者说触发事件，第一个参数为事件名，第二个参数为要发送的数据，第三个参数为回调函数
+* emit ：发射事件或者说触发事件，第一个参数为事件名，第二个参数为要发送的数据，第三个参数为回调函数 *
 
-on ：用来监听emit发射的事件，第一个参数为要监听的事件名，第二个参数为一个匿名函数用来接收对方发来的数据，该匿名函数的第一个参数为接收的数据
+* on ：用来监听emit发射的事件，第一个参数为要监听的事件名，第二个参数为一个匿名函数用来接收对方发来的数据，该匿名函数的第一个参数为接收的数据 *
 
-socket.io 提供了三种默认的事件（客户端和服务器都有）：connect 、message 、disconnect ;当与对方建立连接后自动触发 connect 事件，当收到对方发来的数据后触发 message 事件（通常为 socket.send() 触发），当对方关闭连接后触发 disconnect 事件。
+socket.io 提供了三种默认的事件（客户端和服务器都有）：**connect 、message 、disconnect** ;当与对方建立连接后自动触发 connect 事件，当收到对方发来的数据后触发 message 事件（通常为 socket.send() 触发），当对方关闭连接后触发 disconnect 事件。
 
 最后需要注意在服务器端区分以下三种情况：
 
 socket.emit() ：向建立该连接的客户端广播
+
 socket.broadcast.emit() ：向除去建立该连接的客户端的所有客户端广播
+
 io.sockets.emit() ：向所有客户端广播，等同于上面两个的集合
 
 # 常用API
@@ -80,7 +82,9 @@ socketIO.to()                              // 仅传播到给定空间中的客�
 socket.send();                             // 发送一个信息
 
 
-# DEMO功能：
+# DEMO
+
+### 功能
 
 1.使用NodeJS插件socket.io实现实时聊天室
 
@@ -89,7 +93,7 @@ socket.send();                             // 发送一个信息
 3.侦听信息、链接发送成功与否
 
     
-## 启动服务器：    
+### 启动服务器    
 
 搭建环境[Node.js](https://nodejs.org/zh-cn/)
 
@@ -102,6 +106,16 @@ npm install express socket.io
 node app.js
 ```
 
-浏览器输入：http://localhost:3000 展示
+浏览器输入：http://localhost:3000 
+
+### 效果展示
+
+房间列表
+
+![](/img/pubilc/websocket-room-list.jpg)
+
+聊天室
+
+![](/img/pubilc/websocket-main.jpg)
 
 
