@@ -104,4 +104,12 @@ node app.js
 
 浏览器输入：http://localhost:3000 展示
 
+房间列表
+
+![](/img/pubilc/websocket-room-list.jpg)
+
+聊天室
+
+![](/img/pubilc/websocket-main.jpg)
+
 
