@@ -80,7 +80,9 @@ socketIO.to()                              // 仅传播到给定空间中的客�
 socket.send();                             // 发送一个信息
 
 
-# DEMO功能：
+# DEMO
+
+## 功能
 
 1.使用NodeJS插件socket.io实现实时聊天室
 
@@ -89,7 +91,7 @@ socket.send();                             // 发送一个信息
 3.侦听信息、链接发送成功与否
 
     
-## 启动服务器：    
+## 启动服务器    
 
 搭建环境[Node.js](https://nodejs.org/zh-cn/)
 
@@ -102,7 +104,9 @@ npm install express socket.io
 node app.js
 ```
 
-浏览器输入：http://localhost:3000 展示
+浏览器输入：http://localhost:3000 
+
+## 效果展示
 
 房间列表
 
