@@ -84,6 +84,8 @@ socket.send();                             // 发送一个信息
 
 # DEMO
 
+[DEMO文件下载](https://github.com/devin-huang/socket.io-Demo)
+
 ### 功能
 
 1.使用NodeJS插件socket.io实现实时聊天室
