@@ -37,7 +37,7 @@ tags:
 
 ## vue全家桶
 
-`axios`Vue2.0异步方式请求数据方式
+* `axios`Vue2.0异步方式请求数据方式
 
 * `vue-awesome-swiper`轮播图插件
 
