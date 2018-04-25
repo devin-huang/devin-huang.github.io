@@ -37,7 +37,7 @@ tags:
 
 ## vue全家桶
 
-`axios`Vue2.0异步方式请求数据方式
+* `axios`Vue2.0异步方式请求数据方式
 
 * `vue-awesome-swiper`轮播图插件
 
@@ -60,6 +60,10 @@ tags:
 [什么是Vuex?](https://vuex.vuejs.org/zh-cn/intro.html)
 
 [Vuex属性对象](https://www.cnblogs.com/kbnet/p/6938693.html)
+
+**为什么需要Vuex?**
+
+**在大型项目中多个组件共享状态时，单向数据流的简洁性很容易被破坏，把数据共享抽取出来，以一个全局单例模式管理(通俗解释： 全局改变数据，共享到每个组件 )；**
 
 本商城项目中`src/store`使用了Vuex
 
