@@ -1,0 +1,278 @@
+---
+layout:     post
+title:     Vue开发
+subtitle:   Vue2.0+
+date:       2018-08-01
+author:     BY Devin
+header-img: img/post-bg-digital-native.jpg
+catalog: true
+tags:
+    - vue
+---
+
+## 简介
+
+数据更新机制：基于依赖追踪的观察系统并且异步列队更新，所有的数据变化都是独立地触发，除非它们之间有明确的依赖关系。
+
+**注意：@代表事件 、: 代表绑定属性数据**
+
+## export default 和 export 区别
+
+* export与export default均可用于导出常量、函数、文件、模块等
+
+* 你可以在其它文件或模块中通过import+（常量 / 函数 / 文件 / 模块）名的方式，将其导入，以便能够对其进行使用
+
+* 在一个文件或模块中，export、import可以有多个，export default仅有一个
+
+* 通过export方式导出，在导入时要加{ }，export default则不需要
+
+## 指令
+
+*  v-for 2.0
+
+`<li  v-for='(item , index in items)' :key='index' >index</li>` （2.0+为key , 1.0为track-by; 防止重复  数据报错）
+
+* 防止{{ }}闪烁出现可使用`v-text`或`v-html`；
+
+## 自定义指令[directive](https://cn.vuejs.org/v2/api/#Vue-directive)
+
+自定义指令是用来操作DOM的。尽管Vue推崇数据驱动视图的理念，但并非所有情况都适合数据驱动。自定义指令就是一种有效的补充和扩展，不仅可用于定义任何的DOM操作，并且是可复用的。
+
+* 比如vue中使用jquery插件：
+
+```
+<table id="testTable">
+  <tr v-for="(el, lineIndex) in lines" v-line-inserted="lineIndex" >
+   <td>
+    <input name="bindSelect2" />
+   <td>
+  </tr>
+</table>
+
+function renderLines(el, lineIndex){
+  $("testTable tr").eq(lineIndex).select2({...});
+}
+ 
+Vue.directive('line-inserted', {
+  inserted: function (el, binding) {
+   var lineIndex = binding.value;
+   renderLines(el, lineIndex);
+  }
+});
+```
+
+* 指令调用：
+
+   `<div v-mydirective ></div>`    ->    `Vue.directive('mydirective')`
+   
+* 自定义键盘名称指令：
+
+   `Vue.directive('on').keyCodes.ctrl = 17`; （通过$event.keyCode知道对于键盘的ID号）
+   
+## 组件component
+
+组件调用：     
+
+`<div my-directive ></div>`   ->  `Vue.component.('my-directive')`
+
+props(父级传递数据给子级)类似apply/call： 
+
+`props:{ myMessage：String }` ->  `<child my-message='hello'></child>`
+
+### 父子级之间数据传递
+
+[https://www.cnblogs.com/wisewrong/p/6266038.html](https://www.cnblogs.com/wisewrong/p/6266038.html)
+
+### 兄弟组件之间数据传递Event Bus
+
+有时候两个组件之间需要进行通信，但是它们彼此不是父子组件的关系。在一些简单场景，你可以使用一个空的 Vue 实例作为一个事件总线中心(central event bus)：
+
+```
+var bus = new Vue();
+​
+// 在组件 A 的 methods 方法中触发事件
+bus.$emit('say-hello', 'world')
+​
+// 在组件 B 的 created 钩子函数中监听事件
+bus.$on('say-hello', function (arg) {
+  console.log('hello ' + arg);          // hello world
+})
+```
+
+## v-bind 动态绑定属性
+
+属性绑定（当数据是从Controller中绑定到View时使用）： 
+
+`v-bind: src /width/alt/class/style.....`  -> 简写： `:src/width/alt ...`
+
+特殊属性class
+
+方法1. `:class='[red,blue]'` -> 使用对应的Class集合 ; 
+
+方法2. `:class='{ red:false , blue:true }'`;
+
+特殊属性style
+
+`:style='json'`( `json:{ color:'red',backgroundColor:'blue' }` json代表controller内的数据);
+
+## Event
+
+参考：https://cn.vuejs.org/v2/api/#v-on
+
+事件简写：`v-on:click()`  ->  `@click()`
+
+事件对象`@mousemove='func($event)'`  ->  获取 `$event.clientX`与 `$event.clientY` (鼠标XY坐标)
+
+事件冒泡 -> 阻止事件冒泡 -> JS原生：`$event.cancelBubble = true` ; -> Vue简写:`@click.stop='func'`;
+
+默认事件 -> 阻止默认事件  -> JS原生：`$event.preventDefault()` ; -> Vue简写: `@click.prevent='func'`;
+
+键盘事件 -> JS键码获取keyCode -> $event.keyCode ; 
+
+Vue简写：
+
+`@keyup/keydown.enter` (回车键) 
+
+`@keyup/keydown.left`（向左键）
+
+`@keyup/keydown.right`（向右键） 
+
+`@keyup/keydown.up`（向上键） 
+
+`@keyup/keydown.down`（向下键） 
+
+过滤器（2.0无内置过滤器）
+
+```
+Vue.filter('name',function(val){
+    return val
+})
+
+{{ msg | name }}
+```
+
+## computed 与 watch使用与区别
+
+推荐大部分使用computed，调用ajax、新旧值比较时使用watch；
+
+```
+window.onload = function(){
+    var vm = new Vue({
+        el:'.ele',
+        data:{
+            i : 0
+        },
+        //computed页面加载时触发或关联数据改变时触发
+        //基于data中数据生成新的变量，例子：根据i获得num
+        computed:{
+            num : function(val){
+                return this.i * 2 ;   //必须要return返回；
+            }
+        },
+        //基于当前data进行变化，例子：根据i二变化
+        watch:{
+            i:{
+                deep：true,    //深度监听，一般用于json属性某值改变
+                handler:function(newVal,oldVal){
+                    console.log(newVal,oldVal)
+                }
+            }
+        },
+    })
+}
+```
+
+## 生命周期 (总共分为8个阶段创建前/后，载入前/后，更新前/后，销毁前/后)
+
+由于vue是写在onload中所以不存在jquery的onready & onload说法，但是还是vue自身的加载顺序，一般文档时就载入用黑下划线的事件；
+    
+推荐参考：https://segmentfault.com/a/1190000008010666 
+    
+* `beforecreated` element、data 并未初始化 ；
+    
+* `created` data 已初始化，element并没，用于新增数据；
+    
+* `beforeMount` 完成了element、data 初始化 ；
+    
+* `mounted` 后端返回数据配合路由钩子处理虚拟DOM；
+    
+* `beforeDestory` 删除组件前；
+
+![](/img/pubilc/vue-lifeCycle.jpg)
+
+## v-for 结合 v-model
+
+```
+//有时候需要循环多个input并各自绑定v-model
+<div v-for="(s,index) in select"  >
+  <input type="text" name="test" v-model="select[index]" />
+  {{ select[index] }} //注意需要在data先定义名为select的数组
+</div>
+
+//多重v-for循环（参考：https://segmentfault.com/q/1010000008764694）
+<div v-for="(item,index) in submit.fieldParseList">
+  <div v-for="(val,key) in item">
+    <label>{{key}}</label>
+    <input type="text" v-model="submit.fieldParseList[index][key]"></input>
+  </div>
+</div>
+```
+
+## 解决数据层级结构过深
+
+在开发业务的时候，经常会出现异步获取数据的情况，有时候数据层次比较深。如：
+
+```
+<span class="airport" v-text="ticketInfo.flight.fromSegments[ticketInfo.flight.fromSegment - 1].depAirportZh"></span>
+```
+我们可以使用`vm.$set`手动定义一层数据
+
+```
+vm.$set("depAirportZh" ,ticketInfo.flight.fromSegments[ticketInfo.flight.fromSegments - 1] .depAirportZh)
+```
+
+## 交互（ajax）：
+
+* axios默认不启用跨域异步访问（Access-Control-Allow-Origin），需要服务器（后端）开启才能使用；
+
+* 使用axios处理post请求时，出现404问题解决，参考：http://blog.csdn.net/qq_33050575/article/details/62418070
+
+* 封装Axios全局使用：
+
+```
+import axios from 'axios'
+var http = axios.create({
+    baseURL: HOST+'/api/',
+    timeout: 10000,
+    headers: { 'Authorization': 'Bearer' }
+});
+
+export default {
+    userGet(url, cb, error) {
+        http.get(url).then(res => {
+            cb(res)
+        }).catch(err => {
+            error(err)
+        });
+    },
+    userPost(url,data, cb, error) {
+        http.post(url,data).then(res => {
+            cb(res)
+        }).catch(err => {
+            error(err)
+        });
+    }
+}
+
+//需要的组件 or Vuex中使用
+import http from '/http'
+http.userGet(url,cb,er);
+```
+
+# slot插槽
+
+[https://www.zhihu.com/question/37548226?sort=created](https://www.zhihu.com/question/37548226?sort=created)
+
+[https://www.jianshu.com/p/c7f2c21fe76c](https://www.jianshu.com/p/c7f2c21fe76c)
+
+两个链接参考完毕再使用
