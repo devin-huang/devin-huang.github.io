@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:     Vue全家桶+webpack搭建商城项目
+title:     Vue全家桶 + Vue + Webpack搭建商城项目
 subtitle:   Vue + VueRouter + Webpack + Axios
 date:       2018-03-01
 author:     BY Devin
