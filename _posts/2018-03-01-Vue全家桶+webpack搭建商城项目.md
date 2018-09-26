@@ -11,6 +11,7 @@ tags:
     - Axios
     - VueRouter
     - Webpack
+    - vuex
 ---
 
 ## 前言
