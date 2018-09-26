@@ -25,6 +25,36 @@ tags:
 
 `npm install -g vue-cli`
 
+## 搭建初始
+
+安装依赖
+
+`npm install axios vuex`
+
+axios配置文件
+
+src/utils/http.js 用于封装axios异步GET/POST/DELETE等方式获取数据
+
+Vuex配置文件
+
+![](/img/pubilc/vuex.png)
+
+**注意必须在main.js挂在store ， 配置API的端口设置`config/dev.env.js`添加 `API_ROOT: "http://localhost:4009"`**
+
+## vuex状态管理模式
+
+**在大型项目中多个组件共享状态时，单向数据流的简洁性很容易被破坏，把数据共享抽取出来，以一个全局单例模式管理(通俗解释： 全局改变数据，共享到每个组件 )；**
+
+本商城项目中`src/store`使用了Vuex
+
+* State      : 储存初始化数据或后端获取的数据
+
+* Getters    : State 数据二次处理
+
+* Mutations  : 数据进行计算的方法,页面中触发方式this.$store.commit('mutationName')触发Mutations方法改变state的值
+
+* Actions    : 类似Mutations,页面中触发方式this.$store.dispatch(actionName)，与Mutations区别在于异步函数使用Actions
+
 创建项目
 
 `vue init webpack Shop-vue2`
@@ -55,25 +85,6 @@ tags:
 
 * `voinc`基于Vue.js和ionic样式的UI框架，用于方便快速地搭建单页应用
 
-## vuex状态管理模式
-
-[什么是Vuex?](https://vuex.vuejs.org/zh-cn/intro.html)
-
-[Vuex属性对象](https://www.cnblogs.com/kbnet/p/6938693.html)
-
-**为什么需要Vuex?**
-
-**在大型项目中多个组件共享状态时，单向数据流的简洁性很容易被破坏，把数据共享抽取出来，以一个全局单例模式管理(通俗解释： 全局改变数据，共享到每个组件 )；**
-
-本商城项目中`src/store`使用了Vuex
-
-* State      : 储存初始化数据或后端获取的数据
-
-* Getters    : State 数据二次处理
-
-* Mutations  : 数据进行计算的方法,页面中触发方式this.$store.commit('mutationName')触发Mutations方法改变state的值
-
-* Actions    : 类似Mutations,页面中触发方式this.$store.dispatch(actionName)，与Mutations区别在于异步函数使用Actions
 
 ## Vue运行
 
