@@ -39,7 +39,7 @@ Vuex配置文件
 
 ![](/img/pubilc/vuex.png)
 
-**注意必须在main.js挂在store ， 配置API的端口设置`config/dev.env.js`添加 `API_ROOT: "http://localhost:4009"`**
+**注意必须在`src/main.js`挂载store ， 配置API的端口设置`config/dev.env.js`添加 `API_ROOT: "http://localhost:4009"`**
 
 ## vuex状态管理模式
 
